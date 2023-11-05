@@ -5,22 +5,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-
     if (empty($email) || empty($password)) {
-        die("erro");
+        $_SESSION['erro'] = "Campos em branco não são permitidos.";
+        header('location: ../login.php');
+        exit;
     }
 
-    $sql = "SELECT * FROM adm WHERE email = '$email' AND senha='$password' LIMIT 1";
+    $sql = "SELECT * FROM adm WHERE email = '$email' AND senha = '$password' LIMIT 1";
     
     $resultado = mysqli_query($con, $sql);
 
-    if (mysqli_num_rows($resultado) > 0) {
-        $_SESSION['adm'] = mysqli_fetch_row($resultado)[1];
-    }else {
-        $_SESSION['erro'] = "usuario errado";
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
+        $row = mysqli_fetch_assoc($resultado);
+        $_SESSION['adm'] = $row['nome'];
+    } else {
+        $_SESSION['erro'] = "Usuário ou senha incorretos.";
         header('location: ../login.php');
         exit;
     }
 }
 
-header('location: ../index.php');
+header('location: ../indexadm.php');

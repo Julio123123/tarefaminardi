@@ -1,4 +1,4 @@
-<?php
+/<?php
 
 $hostname = "localhost";
 $username = "root";
@@ -8,7 +8,7 @@ $database = "adm";
 $con = mysqli_connect($hostname, $username, $password, $database);
 
 if (!$con) {
-    die("erro");
+    die("Erro na conexão: " . mysqli_connect_error());
 }
 
 session_start();

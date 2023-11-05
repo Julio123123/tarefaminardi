@@ -131,8 +131,8 @@
         <form class="formLogin" action="phpadm/login.php" method="post">
             <h1 class="admin-effect">BEM VINDO ADMINISTRADOR</h1>
             <div class="form-group admin-effect">
-                <label for="username">Insira o e-mail</label>
-                <input type="text" name="username" id="username" autocomplete="off" class="form-control-material" required/>
+                <label for="email">Insira o e-mail</label>
+                <input type="text" name="email" id="email" autocomplete="off" class="form-control-material" required/>
             </div>
             <div class="form-group admin-effect">
                 <label for ="password">Insira a senha</label>

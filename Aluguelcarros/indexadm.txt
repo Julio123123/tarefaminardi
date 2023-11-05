@@ -1,0 +1,86 @@
+esse é o codigo pra fazer card original
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de Card</title>
+    <style>
+        /* Estilo para ocultar o card inicialmente */
+        .card {
+            display: none;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <button onclick="mostrarCard()">Mostrar Card</button>
+    <div id="card" class="card">
+        <h2>Meu Card</h2>
+        <p>Conteúdo do card.</p>
+        <button onclick="fecharCard()">Fechar</button>
+    </div>
+    <script>
+        // Função para mostrar o card
+        function mostrarCard() {
+            var card = document.getElementById("card");
+            card.style.display = "block";
+        }
+
+        // Função para fechar o card
+        function fecharCard() {
+            var card = document.getElementById("card");
+            card.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exemplo de Card</title>
+    <style>
+        /* Estilo para ocultar o card inicialmente */
+        .card {
+            display: none;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <button onclick="mostrarCard()">Mostrar Card</button>
+    <div id="card" class="card">
+        <h2>Meu Card</h2>
+        <p>Conteúdo do card.</p>
+        <button onclick="fecharCard()">Fechar</button>
+    </div>
+    <script>
+        // Função para mostrar o card
+        function mostrarCard() {
+            var card = document.getElementById("card");
+            card.style.display = "block";
+        }
+
+        // Função para fechar o card
+        function fecharCard() {
+            var card = document.getElementById("card");
+            card.style.display = "none";
+        }
+    </script>
+</body>
+</html>
