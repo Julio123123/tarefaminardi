@@ -597,3 +597,63 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: #777; 
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+body {
+    background-image: url(img/Backgroundcarro.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .container {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 3%;
+    justify-content: center;
+    margin-left: 12%;
+  }
+
+
+ h1{
+    justify-content: center;
+    text-align: center;
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    color: #f5863a;
+  }
+
+ .form-group {
+    margin-bottom: 10px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color:#f7f7f8;
+  }
+  
+  button {
+    background-color: #f5863a;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1%;
+    margin-left: 33%;
+    align-items: center;
+    width: 25%;
+  }
+
+  .form-radio {
+    display: flex;
+
+    & > input {
+      width: fit-content;
+    }
+  }

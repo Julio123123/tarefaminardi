@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-image: url('/fotofundo/Backgroundcarro.png') ;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
+
+.form-container {
+  width: 50%; /* Ocupa metade da largura da tela */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1; /* Coloca o formulário na frente da imagem de fundo */
+}
+
+.background-image {
+  background-image: url('sua-imagem-de-fundo.jpg'); /* Substitua com o caminho da sua imagem */
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%; /* A imagem ocupa metade da largura da tela à esquerda do formulário */
+  z-index: 0;
+}
+
+h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  color: #f5863a;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f7f7f8;
+  margin: 0;
+}
+
+button {
+  background-color: #f5863a;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+  width: 50%;
+  margin: 10px auto;
+}

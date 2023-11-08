@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main"> 
+            <div class="h1">
+                <h1>Login</h1>
+            </div>
+            <div class="login">
+                <form class="form" action="login.php" method="post">
+                    <input class="input" type="email" name="email" placeholder="Email" required>
+
+                    <div class="password-container">
+                        <input class="input" type="password" name="senha" id="senhaInput" placeholder="Password" required>
+                        <input type="checkbox" id="mostrarSenha">
+                        <label for="mostrarSenha" class="checkbox-label"></label>
+                    </div>
+                    
+                    <button>Login</button> 
+                    <a href="">Cadastrar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
