@@ -23,8 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $link_imagem = $_POST['link_imagem'];
   $combustivel = $_POST['combustivel'];
   $media = $_POST['media'];
+  $stt = $_POST['stt'];
 
-  $sql = "INSERT INTO carros (marca, modelo, ano, cor, preco, placa, peso, renavan, km_rodado, link_imagem, combustivel, media) VALUES ('$marca', '$modelo', '$ano', '$cor', '$preco', '$placa', '$peso', '$documento', '$kilometragem', '$link_imagem', '$combustivel', '$media')";
+  $sql = "INSERT INTO carros (marca, modelo, ano, cor, preco, placa, peso, renavan, km_rodado, link_imagem, combustivel, media, stt) VALUES ('$marca', '$modelo', '$ano', '$cor', '$preco', '$placa', '$peso', '$documento', '$kilometragem', '$link_imagem', '$combustivel', '$media', '$stt')";
   mysqli_query($con, $sql);
 
   header('Location: index.php');

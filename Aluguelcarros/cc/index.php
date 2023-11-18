@@ -70,6 +70,13 @@
           <div class="form-radio">
             <input type="radio" name="transmissao" value="manual"> Manual
           </div>
+          <div class="form-group">
+          <label for="stt">Status</label>
+          <div class="form-radio">
+            <input type="radio" name="stt" value="liberado"> Liberado
+          <div class="form-radio">
+            <input type="radio" name="stt" value="pendente"> Pendente
+          </div>
           
         </div>
         <button type="submit" class="btn btn-primary">Confirmar</button>

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     senhaInput.addEventListener("input", function () {
-        const maxLength = 25; // Defina o limite de caracteres desejado
+        const maxLength = 25;
         if (senhaInput.value.length > maxLength) {
             senhaInput.value = senhaInput.value.slice(0, maxLength);
         }

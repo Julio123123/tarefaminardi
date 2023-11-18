@@ -2,7 +2,7 @@
 include 'conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idCarro = isset($_POST['idCarro']) ? intval($_POST['idCarro']) : 0;
+    $idCarro = isset($_POST['carro_id']) ? intval($_POST['carro_id']) : 0;
     $acao = isset($_POST['acao']) ? $_POST['acao'] : '';
 
     if ($idCarro <= 0 || empty($acao)) {
@@ -13,10 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idCarro = mysqli_real_escape_string($conexao, $idCarro);
     $acao = mysqli_real_escape_string($conexao, $acao);
 
-    if ($acao === 'liberar') {
+    if ($acao === 'liberado') {
+        $sql = "UPDATE carros SET stt = 'pendente' WHERE id = $idCarro";
+    } elseif ($acao === 'pendente') {
         $sql = "UPDATE carros SET stt = 'liberado' WHERE id = $idCarro";
-    } elseif ($acao === 'suspender') {
-        $sql = "UPDATE carros SET stt = 'suspenso' WHERE id = $idCarro";
     }
 
     $result = mysqli_query($conexao, $sql);

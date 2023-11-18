@@ -34,8 +34,8 @@
             }else {
                 ?>
                 
-                <a href="cadastro.html" class="cadastre-se">Cadastre-se</a>
-                <a href="/Login/index.html" class="entrar">Entrar</a>
+                <a href="Login\cadastro.html" class="cadastre-se">Cadastre-se</a>
+                <a href="Login\index.html" class="entrar">Entrar</a>
                 <?php
             }
             ?>

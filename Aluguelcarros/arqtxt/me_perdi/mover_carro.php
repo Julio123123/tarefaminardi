@@ -1,9 +1,9 @@
 <?php
 include 'conexao.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idCarro = isset($_POST['idCarro']) ? intval($_POST['idCarro']) : 0;
-    $acao = isset($_POST['acao']) ? $_POST['acao'] : '';
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $idCarro = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 
     if ($idCarro <= 0 || empty($acao)) {
         echo "ID do item e ação são obrigatórios.";
@@ -32,4 +32,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $conexao->close();
-?>
