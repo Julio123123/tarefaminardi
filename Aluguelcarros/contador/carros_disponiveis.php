@@ -1,12 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 
-$hostname = "localhost";
-$username = "root";
-$password = "senha";
-$database = "carros";
-
-$conn = new mysqli($hostname, $username, $password, $database);
+$conn = new mysqli("localhost", "root", "senha", "carros");
 
 if ($conn->connect_error) {
     die("Erro na conexão com o banco de dados: " . $conn->connect_error);
@@ -26,10 +21,10 @@ if ($result->num_rows > 0) {
         echo "<p>Cor: " . $row["cor"] . "</p>";
         echo "<p>Preço: R$ " . $row["preco"] . "</p>";
         echo "<form method='post' action='alugar_carro.php'>";
-        echo "<input type='hidden' name='carro_id' value='" . $row["id"] . "'>";
+        echo "<input type='hidden' name='idCarro' value='" . $row["id"] . "'>";
         echo "<label for='diasAluguel'>Quantidade de Dias:</label>";
         echo "<input type='number' id='diasAluguel' name='diasAluguel' min='1'>";
-        echo "<button type='submit'>Alugar</button>";
+        echo "<button type='submit' name='alugar'>Alugar</button>";
         echo "</form>";
         echo "</div>";
         echo "</div>";

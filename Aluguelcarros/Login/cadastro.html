@@ -322,9 +322,6 @@ body {
       }
   
   } 
-  /*--------------------
-  Vars
-  --------------------*/
   const deg = (a) => Math.PI / 180 * a
   const rand = (v1, v2) => Math.floor(v1 + Math.random() * (v2 - v1))
   const opt = {
@@ -356,10 +353,6 @@ body {
     }
   })
   
-  
-  /*--------------------
-  Particle
-  --------------------*/
   class Particle {
     constructor(x, y) {
       this.x = x
@@ -444,10 +437,6 @@ body {
     }
   }
   
-  
-  /*--------------------
-  Setup
-  --------------------*/
   function setup() {
     createCanvas(windowWidth, windowHeight)
     for (let i = 0; i < opt.particles; i++) {
@@ -456,10 +445,6 @@ body {
     strokeWeight(opt.strokeWeight)
   }
   
-  
-  /*--------------------
-  Draw
-  --------------------*/
   function draw() {
     time++
     background(0, 100 - opt.tail)
@@ -470,10 +455,6 @@ body {
     }
   }
   
-  
-  /*--------------------
-  Resize
-  --------------------*/
   function windowResized() {
     resizeCanvas(windowWidth, windowHeight)
   }

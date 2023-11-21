@@ -1,8 +1,6 @@
 <?php
 
-require_once "index.php";
-
-class Calculo{
+class Calculo {
     public function calcularValor($quantidadeDias) {
         $valorIntegralDiario = 100;
 
@@ -22,5 +20,4 @@ class Calculo{
 
 $calculo = new Calculo();
 echo $calculo->calcularValor(2);
-
 ?>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +20,7 @@
             cursor: pointer;
         }
 
-        .card:hover{
+        .card:hover {
             transform: scale(1.1);
             transition: all 0.5s ease-in-out;
         }
@@ -55,6 +54,12 @@
             right: 10px;
             cursor: pointer;
         }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -68,24 +73,42 @@
         <span class="popup-close" onclick="closePopup()">X</span>
         <div id="carInfoContent"></div>
         <label for="diasAluguel">Quantidade de Dias:</label>
-        <input type="number" id="diasAluguel" name="diasAluguel" min="1">
-        <button onclick="alugarCarro()">Alugar</button>
+        <form method="post" action="alugar_carro.php" id="alugarForm">
+            <input type="hidden" id="idCarro" name="idCarro" value="">
+            <input type="number" id="diasAluguel" name="diasAluguel" min="1">
+            <div class="popup-buttons">
+                <button type="submit">Confirmar</button>
+                <button type="button" onclick="closePopup()">Cancelar</button>
+            </div>
+        </form>
     </div>
 
-    <script>
-        function showPopup(carro) {
-            document.getElementById('carInfoContent').innerHTML = '<p>Modelo: ' + carro.modelo + '</p>';
-            document.getElementById('carInfoPopup').style.display = 'block';
-            document.getElementById('alugarButton').addEventListener('click', function () {
-                var diasAluguel = document.getElementById('diasAluguel').value;
-                alert('Você alugou o ' + carro.modelo + ' por ' + diasAluguel + ' dias!');
-                closePopup();
-            });
-        }
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['alugar'])) {
+        $idCarro = isset($_POST['idCarro']) ? intval($_POST['idCarro']) : 0;
+        $diasAluguel = isset($_POST['diasAluguel']) ? intval($_POST['diasAluguel']) : 0;
 
-        function closePopup() {
-            document.getElementById('carInfoPopup').style.display = 'none';
+        if ($idCarro > 0 && $diasAluguel > 0) {
+            $conn = new mysqli("localhost", "root", "senha", "carros");
+
+            if ($conn->connect_error) {
+                die("Erro de conexão com o banco de dados: " . $conn->connect_error);
+            }
+
+            $sql = "UPDATE carros SET stt = 'alugado' WHERE id = $idCarro";
+
+            if ($conn->query($sql) === TRUE) {
+                $calculo = new Calculo();
+                $valorAluguel = $calculo->calcularValor($diasAluguel);
+                echo "<script>alert('Carro alugado com sucesso! Valor do aluguel: R$ " . $valorAluguel . "');</script>";
+            } else {
+                echo "<script>alert('Erro ao realizar o aluguel.');</script>";
+            }
+
+            $conn->close();
         }
-    </script>
+    }
+    ?>
+
 </body>
 </html>
