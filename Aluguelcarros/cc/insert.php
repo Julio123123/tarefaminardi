@@ -8,7 +8,6 @@ $database = "carros";
 
 $con = mysqli_connect($hostname, $username, $password, $database);
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $marca = $_POST['marca'];
@@ -23,9 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $link_imagem = $_POST['link_imagem'];
   $combustivel = $_POST['combustivel'];
   $media = $_POST['media'];
+  $transmissao = $_POST['transmissao'];
   $stt = $_POST['stt'];
 
-  $sql = "INSERT INTO carros (marca, modelo, ano, cor, preco, placa, peso, renavan, km_rodado, link_imagem, combustivel, media, stt) VALUES ('$marca', '$modelo', '$ano', '$cor', '$preco', '$placa', '$peso', '$documento', '$kilometragem', '$link_imagem', '$combustivel', '$media', '$stt')";
+  $sql = "INSERT INTO carros (marca, modelo, ano, cor, preco, placa, peso, renavan, km_rodado, link_imagem, combustivel, media, transmissao, stt) VALUES ('$marca', '$modelo', '$ano', '$cor', '$preco', '$placa', '$peso', '$documento', '$kilometragem', '$link_imagem', '$combustivel', '$media','$transmissao', '$stt')";
   mysqli_query($con, $sql);
 
   header('Location: index.php');

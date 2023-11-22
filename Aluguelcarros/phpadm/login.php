@@ -3,15 +3,15 @@ require_once "conexao.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $senha = $_POST['senha'];
 
-    if (empty($email) || empty($password)) {
+    if (empty($email) || empty($senha)) {
         $_SESSION['erro'] = "Campos em branco não são permitidos.";
-        header('location: ../login.php');
+        header('location: ../adm/index.');
         exit;
     }
 
-    $sql = "SELECT * FROM adm WHERE email = '$email' AND senha = '$password' LIMIT 1";
+    $sql = "SELECT * FROM adm WHERE email = '$email' AND senha = '$senha' LIMIT 1";
     
     $resultado = mysqli_query($con, $sql);
 
@@ -20,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['adm'] = $row['nome'];
     } else {
         $_SESSION['erro'] = "Usuário ou senha incorretos.";
-        header('location: ../login.php');
+        header('location: ../index.php');
         exit;
     }
 }
 
-header('location: ../indexadm.php');
+header('location: ../adm/index.php');

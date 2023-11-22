@@ -14,7 +14,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: aqua;
+            background-image: url('img/background_adm.png');
         }
 
         .tv-bg {
@@ -135,8 +135,8 @@
                 <input type="text" name="email" id="email" autocomplete="off" class="form-control-material" required/>
             </div>
             <div class="form-group admin-effect">
-                <label for ="password">Insira a senha</label>
-                <input type="password" name="password" id="password" autocomplete="off" class="form-control-material" required/>
+                <label for ="senha">Insira a senha</label>
+                <input type="senha" name="senha" id="senha" autocomplete="off" class="form-control-material" required/>
             </div>
 
                 <button type="submit" class="btn btn-primary btn-ghost" id="enterButton">ENTRAR</button>

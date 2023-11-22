@@ -14,7 +14,7 @@ CREATE TABLE carros (
     transmissao VARCHAR(20) NOT NULL,
     
 )
-
+    
 
 
 INSERT INTO carros(marca, modelo, ano, preco, placa, peso, renavan, km_rodado, cor, link_imagem, combustivel, media, transmissao, stt)

@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <a href="#" class="logo"><img src="../aluguelcarros-master/img/logo_transparent.png"></a>
+        <a href="#" class="logo"><img src="img/1.jpeg"></a>
 
         <div class="bx bx-menu" id="menu-icon"></div>
 
@@ -26,17 +26,18 @@
         </ul>
         <div class="header-btn">
             <?php
-               
+
             session_start();
             if (isset($_SESSION['usuario'])) {
                 echo "" . $_SESSION['usuario'];
                 echo '<a href="php/sair.php">Sair</a>';
-            }else {
-                ?>
-                
+                echo '<<a href="php/sair.php">Devolver item</a>';
+            } else {
+            ?>
+
                 <a href="Login\cadastro.html" class="cadastre-se">Cadastre-se</a>
                 <a href="Login\index.html" class="entrar">Entrar</a>
-                <?php
+            <?php
             }
             ?>
         </div>
@@ -53,7 +54,7 @@
                 <img src="img/ios.png" alt="">
                 <img src="img/play.png" alt="">
             </div>-->
-    
+
         </div>
         <div class="img">
             <img src="img/nivus-removebg.png" alt="nivus" width="180%">
@@ -76,7 +77,7 @@
             </form>
         </div>
     </section>
-    
+
 
     <section class="comofunciona" id="comofunciona">
         <div class="heading">
@@ -108,7 +109,69 @@
             <h1>Explore as melhores ofertas <br> dos melhores revendedores</h1>
         </div>
         <div class="servicos-container">
-            <div class="box">
+            <div class="servicos-container">
+                <?php
+                $hostname = "localhost";
+                $username = "root";
+                $password = "senha";
+                $database = "carros";
+
+                $conn = new mysqli($hostname, $username, $password, $database);
+
+                if ($conn->connect_error) {
+                    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+                }
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    if (isset($_POST['alugar'])) {
+                        $car_id = $_POST['alugar'];
+
+                        // Atualiza o status para 'alugado'
+                        $sql_update = "UPDATE carros SET stt = 'alugado' WHERE id = $car_id";
+
+                        if ($conn->query($sql_update) === TRUE) {
+                            echo "Carro alugado com sucesso!";
+                        } else {
+                            echo "Erro ao alugar o carro: " . $conn->error;
+                        }
+                    }
+                }
+
+                $sql = "SELECT * FROM carros WHERE stt = 'liberado'";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                ?>
+                        <div class="box">
+                            <div class="box-img">
+                                <img src="<?= $row["link_imagem"] ?>" alt="Toyota Hilux">
+                            </div>
+                            <p><?= $row["ano"] ?></p>
+                            <h3><?= $row["ano"] ?> <?= $row["marca"] ?></h3>
+                            <h2>R$<?= $row["preco"] ?> <span>/Diária</span></h2>
+                            <?php
+                            if (isset($_SESSION['usuario'])) {
+                            ?>
+                                <form method="post">
+                                    <input type="hidden" name="alugar" value="<?= $row["id"] ?>">
+                                    <input type="submit" class="btn" value="Alugue Agora">
+                                </form>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                <?php
+                    }
+                } else {
+                    echo "Nenhum carro disponível no momento.";
+                }
+
+                $conn->close();
+                ?>
+            </div>
+
+            <!-- <div class="box">
                 <div class="box-img">
                     <img src="../Aluguelcarros/img/car1.jpg" alt="Toyota Hilux">
                 </div>
@@ -187,7 +250,7 @@
                 <h3>2023 Volkswagem Taos</h3>
                 <h2>R$8.800 | R$750 <span>/Diária</span></h2>
                 <a href="#" class="btn">Alugue Agora</a>
-            </div>
+            </div> -->
         </div>
     </section>
     <section class="sobre" id="sobre">
@@ -225,7 +288,7 @@
         <div class="reviews-container">
             <div class="box">
                 <div class="rev-img">
-                    <img src="../Aluguelcarros/img/1.jpeg" alt="">
+                    <!-- <img src="../Aluguelcarros/img/1.jpeg" alt=""> -->
                 </div>
                 <h2>Giovanna</h2>
                 <div class="stars">

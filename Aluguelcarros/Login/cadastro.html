@@ -24,25 +24,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
-}
+    background-image: url(img/carro-alugado.jpg);
+    background-size: cover;
+    position: relative;
+    }
 
 .container {
-    width: 100%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
-    height: 87vh;
+    height: 75vh;
     display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
     justify-content: center;
 }
 
-.form-image img {
-    width: 50%;
-}
-
 .form {
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,6 +61,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     color: #fff;
+    margin-top: 10p;
 }
 
 .form-header h1::after {
@@ -81,12 +79,13 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1rem 0;
+    margin-top: 20px;
 }
 
 .input-box {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.1rem;
+    margin-bottom: 5px;
     
 }
 
@@ -148,6 +147,7 @@ body {
     background-color: #3687d3d7;
     padding: 0.62rem;
     border-radius: 5px;
+    color: #fff;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -224,7 +224,7 @@ body {
   
           <div class="container">
               <div class="form">
-                  <form action="php/cadastro.php" method="post" id="formulario">
+                  <form action="cadastro.php" method="post" id="formulario">
                       <div class="form-header">
                           <div class="title">
                               <h1>Cadastre-se</h1>
@@ -297,7 +297,7 @@ body {
       var valor = tel.value;
   
       valor = valor.replace(/\D/g, '');
-      valor = valor.replace(/^(\d{2})(\d{4})(\d{1,4}).*/, '($1) $2-$3');
+      valor = valor.replace(/^(\d{2})(\d{5})(\d{1,4}).*/, '($1) $2-$3');
   
       tel.value = valor;
   
@@ -322,6 +322,9 @@ body {
       }
   
   } 
+  /*--------------------
+  Vars
+  --------------------*/
   const deg = (a) => Math.PI / 180 * a
   const rand = (v1, v2) => Math.floor(v1 + Math.random() * (v2 - v1))
   const opt = {
@@ -353,6 +356,10 @@ body {
     }
   })
   
+  
+  /*--------------------
+  Particle
+  --------------------*/
   class Particle {
     constructor(x, y) {
       this.x = x
@@ -437,6 +444,10 @@ body {
     }
   }
   
+  
+  /*--------------------
+  Setup
+  --------------------*/
   function setup() {
     createCanvas(windowWidth, windowHeight)
     for (let i = 0; i < opt.particles; i++) {
@@ -445,6 +456,10 @@ body {
     strokeWeight(opt.strokeWeight)
   }
   
+  
+  /*--------------------
+  Draw
+  --------------------*/
   function draw() {
     time++
     background(0, 100 - opt.tail)
@@ -455,6 +470,10 @@ body {
     }
   }
   
+  
+  /*--------------------
+  Resize
+  --------------------*/
   function windowResized() {
     resizeCanvas(windowWidth, windowHeight)
   }

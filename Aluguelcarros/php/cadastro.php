@@ -2,7 +2,6 @@
 ini_set('display_errors', 1);
 
 require_once "conexao.php";
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $primeiroNome = $_POST['firstname'];
     $cpf = $_POST['cpf'];
@@ -16,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die("erro");
     }
 
-    if ($password !== $confirmPassword) {
+    if ($password != $confirmPassword) {
         die("senhas estao diferentes");
     }
 

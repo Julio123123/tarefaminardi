@@ -1,24 +1,25 @@
 <?php
+require_once "conexao.php";
 
-$conn = new PDO('mysql:host=localhost;dbname=my_database', 'root', '');
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
-$sql = 'SELECT * FROM users WHERE email = :email';
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(':email', $_POST['email']);
-$stmt->execute();
-$user = $stmt->fetch();
+    if (empty($email) || empty($senha)) {
+        die("erro");
+    }
 
-if (!$user) {
-    die('Usuário não existe.');
+    $sql = "SELECT * FROM usuario WHERE email = '$email' AND senha='$senha' LIMIT 1";
+    
+    $resultado = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($resultado) > 0) {
+        $_SESSION['usuario'] = mysqli_fetch_row($resultado)[1];
+    }else {
+        $_SESSION['erro'] = "usuario errado";
+        header('location: ../login.php');
+        exit;
+    }
 }
 
-if (!password_verify($_POST['pswd'], $user['password'])) {
-    die('Senha incorreta.');
-}
-
-session_start();
-$_SESSION['user_id'] = $user['id'];
-
-header('Location: index.php');
-
-?>
+header('location: ../index.php');
