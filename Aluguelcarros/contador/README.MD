@@ -1,0 +1,1 @@
+putz era melhor ter feito em JS 
