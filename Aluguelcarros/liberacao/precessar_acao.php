@@ -33,3 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $conexao->close();
 ?>
+
+* deixar a variável como bool é o problema
+os carros con isso devem ser mudados via js?
+
+talvez seja melhor add uma página como devolução e atualizar no DATABASE como disponível e indisponível, assim é tbm deve ser criada uma página de devolução com uma tabela de herança 
